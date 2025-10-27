@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ChatWidget } from "@/components/ChatWidget";
 
 export const metadata = {
   title: "Must See Georgia — Boutique Travel Experiences",
@@ -19,6 +18,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <ChatWidget />
         </div>
+        <ChatWidget />
       </body>
     </html>
   );
