@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const initialAssistantMessage = {
-  role: 'assistant',
+  role: "assistant",
   content:
-    'Hi! I\'m your Must See Georgia travel planner. Tell me about the experience you want and I\'ll craft a bespoke itinerary for you.'
+    "Hi! I'm your Must See Georgia travel planner. Tell me about the experience you want and I'll craft a bespoke itinerary for you.",
 };
 
 const bubbleClasses = {
-  user: 'self-end bg-emerald-600 text-white',
-  assistant: 'self-start bg-white text-slate-900 border border-slate-200'
+  user: "self-end bg-emerald-600 text-white",
+  assistant: "self-start bg-white text-slate-900 border border-slate-200",
 };
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([initialAssistantMessage]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const containerRef = useRef(null);
 
@@ -30,8 +30,8 @@ export function ChatWidget() {
   const placeholder = useMemo(
     () =>
       isLoading
-        ? 'Designing your next Georgian adventure...'
-        : 'Share where, when, and what vibe you\'re after',
+        ? "Designing your next Georgian adventure..."
+        : "Share where, when, and what vibe you're after",
     [isLoading]
   );
 
@@ -43,21 +43,21 @@ export function ChatWidget() {
     event.preventDefault();
     if (!canSubmit) return;
 
-    const userMessage = { role: 'user', content: input.trim() };
+    const userMessage = { role: "user", content: input.trim() };
     const optimisticMessages = [...messages, userMessage];
     setMessages(optimisticMessages);
-    setInput('');
+    setInput("");
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: optimisticMessages })
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: optimisticMessages }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to contact the travel assistant.');
+        throw new Error("Failed to contact the travel assistant.");
       }
 
       const { message } = await response.json();
@@ -68,10 +68,10 @@ export function ChatWidget() {
       setMessages((previous) => [
         ...previous,
         {
-          role: 'assistant',
+          role: "assistant",
           content:
-            'I\'m sorry — I couldn\'t reach our planning service right now. Please check your connection or try again soon.'
-        }
+            "I'm sorry — I couldn't reach our planning service right now. Please check your connection or try again soon.",
+        },
       ]);
     } finally {
       setIsLoading(false);
@@ -84,7 +84,9 @@ export function ChatWidget() {
         type="button"
         onClick={handleToggle}
         className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
-        aria-label={isOpen ? 'Close travel planning chat' : 'Open travel planning chat'}
+        aria-label={
+          isOpen ? "Close travel planning chat" : "Open travel planning chat"
+        }
       >
         {isOpen ? (
           <span className="text-lg font-semibold">×</span>
@@ -110,15 +112,24 @@ export function ChatWidget() {
       {isOpen && (
         <div className="pointer-events-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl sm:max-w-sm">
           <div className="bg-emerald-600 px-4 py-3 text-white">
-            <p className="text-sm uppercase tracking-wide text-emerald-100">Chat with us</p>
-            <p className="text-base font-semibold">Must See Georgia concierge</p>
+            <p className="text-sm uppercase tracking-wide text-emerald-100">
+              Chat with us
+            </p>
+            <p className="text-base font-semibold">
+              Must See Georgia concierge
+            </p>
           </div>
 
-          <div ref={containerRef} className="flex max-h-80 flex-col gap-2 overflow-y-auto bg-slate-100 px-4 py-4 text-sm text-slate-700">
+          <div
+            ref={containerRef}
+            className="flex max-h-80 flex-col gap-2 overflow-y-auto bg-slate-100 px-4 py-4 text-sm text-slate-700"
+          >
             {messages.map((message, index) => (
               <p
                 key={`${message.role}-${index}`}
-                className={`max-w-[85%] rounded-2xl px-4 py-2 leading-relaxed shadow-sm ${bubbleClasses[message.role] ?? bubbleClasses.assistant}`}
+                className={`max-w-[85%] rounded-2xl px-4 py-2 leading-relaxed shadow-sm ${
+                  bubbleClasses[message.role] ?? bubbleClasses.assistant
+                }`}
               >
                 {message.content}
               </p>
@@ -130,7 +141,16 @@ export function ChatWidget() {
             )}
           </div>
 
-          <form onSubmit={handleSubmit} className="border-t border-slate-200 bg-white p-3">
+          <form
+            onSubmit={handleSubmit}
+            className="border-t border-slate-200 bg-white p-3"
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                handleSubmit(event);
+              }
+            }}
+          >
             <label htmlFor="chat-input" className="sr-only">
               Describe your travel plans
             </label>
@@ -151,7 +171,7 @@ export function ChatWidget() {
                 disabled={!canSubmit}
                 className="inline-flex items-center rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-slate-300"
               >
-                {isLoading ? 'Planning...' : 'Send'}
+                {isLoading ? "Planning..." : "Send"}
               </button>
             </div>
           </form>
@@ -160,4 +180,3 @@ export function ChatWidget() {
     </div>
   );
 }
-
