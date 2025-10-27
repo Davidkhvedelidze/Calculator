@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Must See Georgia logo</title>
+  <desc id="desc">Stylised orange logotype that reads Must See Georgia with a circular G mark.</desc>
+  <rect width="512" height="512" rx="64" fill="#F9A21B"/>
+  <g transform="translate(64 160)" fill="#fff">
+    <path d="M160 96c0 52.996 43.004 96 96 96 43.674 0 80.618-28.929 92.43-68H296v-56h128v8c0 106.039-85.961 192-192 192S40 234.039 40 128 125.961-16 232-16c64.003 0 120.17 30.803 155.13 78.33l-58.145 40.64C304.26 76.747 270.703 56 232 56c-52.996 0-96 43.004-96 96Z"/>
+    <text x="0" y="180" font-family="Poppins, Arial, sans-serif" font-size="96" font-weight="600" letter-spacing="2">Must See</text>
+    <text x="0" y="260" font-family="Poppins, Arial, sans-serif" font-size="128" font-weight="700" letter-spacing="1">Georgia</text>
+  </g>
+</svg>

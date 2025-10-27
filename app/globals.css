@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-white text-slate-900 font-body;
+}
+
+a {
+  @apply text-brand-dark hover:text-brand underline-offset-4 transition-colors;
+}
+
+section {
+  @apply py-16 lg:py-24;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-6 py-3 font-semibold text-brand hover:bg-brand/10;
+}
+
+.badge {
+  @apply rounded-full bg-brand-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark;
+}
+
+.card {
+  @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur;
+}
+
+.gradient-sunrise {
+  background: radial-gradient(circle at top left, #FFE0A3, transparent 55%),
+    radial-gradient(circle at bottom right, rgba(249, 162, 27, 0.25), transparent 60%),
+    linear-gradient(135deg, rgba(249, 162, 27, 0.16), transparent 65%);
+}
