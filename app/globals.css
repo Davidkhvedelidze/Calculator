@@ -15,7 +15,7 @@ a {
 }
 
 section {
-  @apply py-16 lg:py-24;
+  @apply py-3 lg:py-24;
 }
 
 .container {
@@ -39,7 +39,11 @@ section {
 }
 
 .gradient-sunrise {
-  background: radial-gradient(circle at top left, #FFE0A3, transparent 55%),
-    radial-gradient(circle at bottom right, rgba(249, 162, 27, 0.25), transparent 60%),
+  background: radial-gradient(circle at top left, #ffe0a3, transparent 55%),
+    radial-gradient(
+      circle at bottom right,
+      rgba(249, 162, 27, 0.25),
+      transparent 60%
+    ),
     linear-gradient(135deg, rgba(249, 162, 27, 0.16), transparent 65%);
 }
