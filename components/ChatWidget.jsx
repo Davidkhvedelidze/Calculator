@@ -9,8 +9,8 @@ const initialAssistantMessage = {
 };
 
 const bubbleClasses = {
-  user: "self-end bg-emerald-600 text-white",
-  assistant: "self-start bg-white text-slate-900 border border-slate-200",
+  user: "self-end bg-brand text-white",
+  assistant: "self-start bg-white text-slate-900 border border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600",
 };
 
 export function ChatWidget() {
@@ -83,7 +83,7 @@ export function ChatWidget() {
       <button
         type="button"
         onClick={handleToggle}
-        className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+        className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg transition hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         aria-label={
           isOpen ? "Close travel planning chat" : "Open travel planning chat"
         }
@@ -110,9 +110,9 @@ export function ChatWidget() {
       </button>
 
       {isOpen && (
-        <div className="pointer-events-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl sm:max-w-sm">
-          <div className="bg-emerald-600 px-4 py-3 text-white">
-            <p className="text-sm uppercase tracking-wide text-emerald-100">
+        <div className="pointer-events-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl dark:border-slate-700 dark:bg-slate-800 sm:max-w-sm">
+          <div className="bg-brand px-4 py-3 text-white">
+            <p className="text-sm uppercase tracking-wide text-brand-light">
               Chat with us
             </p>
             <p className="text-base font-semibold">
@@ -122,7 +122,7 @@ export function ChatWidget() {
 
           <div
             ref={containerRef}
-            className="flex max-h-80 flex-col gap-2 overflow-y-auto bg-slate-100 px-4 py-4 text-sm text-slate-700"
+            className="flex max-h-80 flex-col gap-2 overflow-y-auto bg-slate-100 px-4 py-4 text-sm text-slate-700 dark:bg-slate-700 dark:text-slate-200"
           >
             {messages.map((message, index) => (
               <p
@@ -135,7 +135,7 @@ export function ChatWidget() {
               </p>
             ))}
             {isLoading && (
-              <p className="self-start rounded-2xl bg-white px-4 py-2 text-slate-500 shadow-sm">
+              <p className="self-start rounded-2xl bg-white px-4 py-2 text-slate-500 shadow-sm dark:bg-slate-800 dark:text-slate-400">
                 Mapping out an unforgettable route...
               </p>
             )}
@@ -143,7 +143,7 @@ export function ChatWidget() {
 
           <form
             onSubmit={handleSubmit}
-            className="border-t border-slate-200 bg-white p-3"
+            className="border-t border-slate-200 bg-white p-3 dark:border-slate-600 dark:bg-slate-800"
             onKeyDown={(event) => {
               if (event.key === "Enter" && !event.shiftKey) {
                 event.preventDefault();
@@ -161,15 +161,15 @@ export function ChatWidget() {
               value={input}
               placeholder={placeholder}
               onChange={(event) => setInput(event.target.value)}
-              className="mb-2 w-full resize-none rounded-2xl border border-slate-200 px-3 py-2 text-sm shadow-inner focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              className="mb-2 w-full resize-none rounded-2xl border border-slate-200 px-3 py-2 text-sm shadow-inner focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:placeholder-slate-400 dark:focus:border-brand-light dark:focus:ring-brand/30"
               disabled={isLoading}
             />
-            <div className="flex items-center justify-between text-xs text-slate-500">
-              <span>Powered by OpenAI · gpt-5-codex</span>
+            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span>Powered by AI · Must See Georgia</span>
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="inline-flex items-center rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex items-center rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-slate-300 dark:disabled:bg-slate-600"
               >
                 {isLoading ? "Planning..." : "Send"}
               </button>

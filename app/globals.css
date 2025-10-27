@@ -6,12 +6,16 @@
   color-scheme: light;
 }
 
+:root.dark {
+  color-scheme: dark;
+}
+
 body {
-  @apply bg-white text-slate-900 font-body;
+  @apply bg-white text-slate-900 font-body dark:bg-slate-900 dark:text-slate-100;
 }
 
 a {
-  @apply text-brand-dark hover:text-brand underline-offset-4 transition-colors;
+  @apply text-brand-dark hover:text-brand underline-offset-4 transition-colors dark:text-brand-light dark:hover:text-brand;
 }
 
 section {
@@ -23,19 +27,19 @@ section {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark dark:shadow-brand/60;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-6 py-3 font-semibold text-brand hover:bg-brand/10;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-6 py-3 font-semibold text-brand hover:bg-brand/10 dark:border-brand-light dark:text-brand-light dark:hover:bg-brand/20;
 }
 
 .badge {
-  @apply rounded-full bg-brand-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark;
+  @apply rounded-full bg-brand-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark dark:bg-brand/20 dark:text-brand-light;
 }
 
 .card {
-  @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur;
+  @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-slate-900/20;
 }
 
 .gradient-sunrise {
@@ -46,4 +50,14 @@ section {
       transparent 60%
     ),
     linear-gradient(135deg, rgba(249, 162, 27, 0.16), transparent 65%);
+}
+
+.dark .gradient-sunrise {
+  background: radial-gradient(circle at top left, rgba(249, 162, 27, 0.3), transparent 55%),
+    radial-gradient(
+      circle at bottom right,
+      rgba(249, 162, 27, 0.4),
+      transparent 60%
+    ),
+    linear-gradient(135deg, rgba(249, 162, 27, 0.2), transparent 65%);
 }
