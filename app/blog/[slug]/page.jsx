@@ -39,12 +39,10 @@ export default function BlogPostPage({ params }) {
         <div className="container py-16">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <span className="badge">{post.category}</span>
-            <h1 className="text-4xl font-display font-bold text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-display font-bold   sm:text-5xl lg:text-6xl">
               {post.title}
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              {post.excerpt}
-            </p>
+            <p className="text-xl   max-w-3xl mx-auto">{post.excerpt}</p>
             <div className="flex items-center justify-center gap-4 text-sm text-slate-500">
               <span className="font-semibold uppercase tracking-wide">
                 {post.date}
@@ -80,16 +78,14 @@ export default function BlogPostPage({ params }) {
             <article className="prose prose-lg prose-slate max-w-none">
               <div className="space-y-8">
                 {/* Introduction */}
-                <div className="text-xl text-slate-600 leading-relaxed">
-                  {post.content}
-                </div>
+                <div className="text-xl   leading-relaxed">{post.content}</div>
 
                 {/* Main Content - This would be expanded content */}
                 <div className="space-y-6">
-                  <h2 className="text-3xl font-display font-semibold text-slate-900">
+                  <h2 className="text-3xl font-display font-semibold  ">
                     The Experience
                   </h2>
-                  <p className="text-lg text-slate-600 leading-relaxed">
+                  <p className="text-lg   leading-relaxed">
                     {post.slug === "chef-guided-supra-rituals" &&
                       "Our culinary journey begins in the heart of Kakheti, where ancient traditions meet modern gastronomy. The supra, Georgia's traditional feast, becomes a transformative experience when guided by master chefs who understand both the cultural significance and contemporary appeal of these sacred gatherings."}
                     {post.slug === "winter-wellness-in-borjomi" &&
@@ -97,10 +93,10 @@ export default function BlogPostPage({ params }) {
                     {post.slug === "svaneti-stargazing" &&
                       "High in the Caucasus Mountains, Svaneti offers some of the clearest night skies in the world. Our stargazing expeditions combine scientific knowledge with local folklore, creating an unforgettable experience that connects you to both the cosmos and Georgian culture."}
                   </p>
-                  <h3 className="text-2xl font-display font-semibold text-slate-900">
+                  <h3 className="text-2xl font-display font-semibold  ">
                     What Makes It Special
                   </h3>
-                  <p className="text-lg text-slate-600 leading-relaxed">
+                  <p className="text-lg   leading-relaxed">
                     {post.slug === "chef-guided-supra-rituals" &&
                       "Each supra is carefully orchestrated to balance tradition with innovation. Our chef partners have spent years studying with local tamadas, learning not just the rituals but the deeper meaning behind each toast, each dish, each moment of connection around the table."}
                     {post.slug === "winter-wellness-in-borjomi" &&
@@ -109,16 +105,14 @@ export default function BlogPostPage({ params }) {
                       "Our astronomy guides are not just scientists—they're storytellers who weave together celestial knowledge with Svan legends. As you gaze at the stars, you'll learn about both the science of the cosmos and the cultural significance of the night sky in Georgian tradition."}
                   </p>
 
-                  <h3 className="text-2xl font-display font-semibold text-slate-900">
+                  <h3 className="text-2xl font-display font-semibold  ">
                     Practical Details
                   </h3>
                   <div className="bg-slate-50 rounded-3xl p-8 space-y-4">
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-2">
-                          Duration
-                        </h4>
-                        <p className="text-slate-600">
+                        <h4 className="font-semibold   mb-2">Duration</h4>
+                        <p className=" ">
                           {post.slug === "chef-guided-supra-rituals" &&
                             "3-4 hours"}
                           {post.slug === "winter-wellness-in-borjomi" &&
@@ -127,10 +121,8 @@ export default function BlogPostPage({ params }) {
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-2">
-                          Group Size
-                        </h4>
-                        <p className="text-slate-600">
+                        <h4 className="font-semibold   mb-2">Group Size</h4>
+                        <p className=" ">
                           {post.slug === "chef-guided-supra-rituals" &&
                             "8-12 guests"}
                           {post.slug === "winter-wellness-in-borjomi" &&
@@ -139,10 +131,8 @@ export default function BlogPostPage({ params }) {
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-2">
-                          Best Season
-                        </h4>
-                        <p className="text-slate-600">
+                        <h4 className="font-semibold   mb-2">Best Season</h4>
+                        <p className=" ">
                           {post.slug === "chef-guided-supra-rituals" &&
                             "Year-round"}
                           {post.slug === "winter-wellness-in-borjomi" &&
@@ -152,10 +142,8 @@ export default function BlogPostPage({ params }) {
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-2">
-                          Difficulty
-                        </h4>
-                        <p className="text-slate-600">
+                        <h4 className="font-semibold   mb-2">Difficulty</h4>
+                        <p className=" ">
                           {post.slug === "chef-guided-supra-rituals" && "Easy"}
                           {post.slug === "winter-wellness-in-borjomi" &&
                             "Easy to Moderate"}
@@ -168,10 +156,10 @@ export default function BlogPostPage({ params }) {
 
                 {/* Call to Action */}
                 <div className="bg-brand/5 rounded-3xl p-8 text-center space-y-4">
-                  <h3 className="text-2xl font-display font-semibold text-slate-900">
+                  <h3 className="text-2xl font-display font-semibold  ">
                     Ready to Experience This?
                   </h3>
-                  <p className="text-slate-600 max-w-2xl mx-auto">
+                  <p className="  max-w-2xl mx-auto">
                     This experience is part of our curated itineraries. Contact
                     our team to include it in your personalized Georgian
                     journey.
@@ -195,7 +183,7 @@ export default function BlogPostPage({ params }) {
       <section className="bg-slate-50/70">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-display font-semibold text-slate-900 text-center mb-12">
+            <h2 className="text-3xl font-display font-semibold   text-center mb-12">
               More Stories from Our Journal
             </h2>
             <div className="grid gap-8 md:grid-cols-2">
@@ -219,12 +207,10 @@ export default function BlogPostPage({ params }) {
                     <span className="badge w-fit mb-3">
                       {relatedPost.category}
                     </span>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors">
+                    <h3 className="text-xl font-semibold   mb-2 group-hover:text-brand-dark transition-colors">
                       {relatedPost.title}
                     </h3>
-                    <p className="text-sm text-slate-600 mb-3">
-                      {relatedPost.excerpt}
-                    </p>
+                    <p className="text-sm   mb-3">{relatedPost.excerpt}</p>
                     <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                       {relatedPost.date}
                     </span>

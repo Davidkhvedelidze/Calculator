@@ -10,7 +10,8 @@ const initialAssistantMessage = {
 
 const bubbleClasses = {
   user: "self-end bg-brand text-white",
-  assistant: "self-start bg-white text-slate-900 border border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600",
+  assistant:
+    "self-start bg-white   border border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600",
 };
 
 export function ChatWidget() {
