@@ -23,6 +23,9 @@ export default function TourDetailPage({ params }) {
     notFound();
   }
 
+  const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(`${tour.title} Georgia tour`)}&ssrc=e`;
+  const paymentMethods = ['PayPal', 'Apple Pay', 'Google Pay'];
+
   return (
     <section>
       <div className="container space-y-12">
@@ -87,6 +90,22 @@ export default function TourDetailPage({ params }) {
                 Share your preferred dates, group size, and interests. Our concierge will respond within 24 hours with a bespoke
                 proposal.
               </p>
+              <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Secure online payments</h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Reserve with peace of mind using modern payment wallets trusted worldwide.
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {paymentMethods.map((method) => (
+                    <li
+                      key={method}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500"
+                    >
+                      {method}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <form className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Name</label>
@@ -133,6 +152,14 @@ export default function TourDetailPage({ params }) {
                   Request details
                 </button>
               </form>
+              <Link
+                href={tripAdvisorSearchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full justify-center text-sm"
+              >
+                Book via TripAdvisor
+              </Link>
             </aside>
           </div>
         </div>
