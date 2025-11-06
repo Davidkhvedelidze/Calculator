@@ -1,0 +1,150 @@
+/* Custom Ant Design Styles for Must See Georgia */
+
+/* Light Mode Select Styles */
+.ant-select {
+  border-radius: 20px !important;
+}
+
+.ant-select .ant-select-selector {
+  border-radius: 20px !important;
+  border: 1px solid #e2e8f0 !important;
+  background-color: white !important;
+  min-height: 40px !important;
+  padding: 0 12px !important;
+}
+
+.ant-select:hover .ant-select-selector {
+  border-color: #f9a21b !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: #f9a21b !important;
+  box-shadow: 0 0 0 2px rgba(249, 162, 27, 0.2) !important;
+}
+
+.ant-select .ant-select-selection-item {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+.ant-select .ant-select-arrow {
+  color: #64748b !important;
+}
+
+/* Dark Mode Select Styles */
+.dark .ant-select .ant-select-selector {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.dark .ant-select:hover .ant-select-selector {
+  border-color: #ffe0a3 !important;
+}
+
+.dark .ant-select-focused .ant-select-selector {
+  border-color: #ffe0a3 !important;
+  box-shadow: 0 0 0 2px rgba(255, 224, 163, 0.3) !important;
+}
+
+.dark .ant-select .ant-select-selection-item {
+  color: #e2e8f0 !important;
+}
+
+.dark .ant-select .ant-select-arrow {
+  color: #94a3b8 !important;
+}
+
+/* Dropdown Styles */
+.ant-select-dropdown {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.dark .ant-select-dropdown {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.ant-select-item {
+  border-radius: 8px !important;
+  margin: 2px 4px !important;
+  padding: 8px 12px !important;
+}
+
+.ant-select-item:hover {
+  background-color: #f8fafc !important;
+}
+
+.dark .ant-select-item:hover {
+  background-color: #334155 !important;
+}
+
+.ant-select-item-option-selected {
+  background-color: #f9a21b !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.ant-select-item-option-selected:hover {
+  background-color: #c77900 !important;
+}
+
+.dark .ant-select-item-option-selected {
+  background-color: #ffe0a3 !important;
+  color: #c77900 !important;
+}
+
+.dark .ant-select-item-option-selected:hover {
+  background-color: #f9a21b !important;
+  color: white !important;
+}
+
+/* Multiple Selection Tags */
+.ant-select-selection-item {
+  background-color: #f9a21b !important;
+  color: white !important;
+  border: 1px solid #f9a21b !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 2px 8px !important;
+  margin: 2px !important;
+}
+
+.ant-select-selection-item-remove {
+  color: white !important;
+  margin-left: 4px !important;
+}
+
+.ant-select-selection-item-remove:hover {
+  color: #ffe0a3 !important;
+}
+
+.dark .ant-select-selection-item {
+  background-color: #ffe0a3 !important;
+  color: #c77900 !important;
+  border-color: #ffe0a3 !important;
+}
+
+.dark .ant-select-selection-item-remove {
+  color: #c77900 !important;
+}
+
+.dark .ant-select-selection-item-remove:hover {
+  color: #f9a21b !important;
+}
+
+/* Animation */
+.ant-select .ant-select-selector {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.ant-select-item {
+  transition: all 0.15s ease-in-out !important;
+}
+
+.ant-select-selection-item {
+  transition: all 0.15s ease-in-out !important;
+}

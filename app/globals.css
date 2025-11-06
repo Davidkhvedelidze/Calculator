@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ant Design CSS */
+@import "antd/dist/reset.css";
+@import "./antd-custom.css";
+
 :root {
   color-scheme: light;
 }
@@ -11,15 +15,34 @@
 }
 
 body {
-  @apply bg-white text-slate-900 font-body dark:bg-slate-900 dark:text-slate-100;
+  @apply bg-white   font-body dark:bg-slate-900 dark:text-slate-100;
 }
 
 a {
   @apply text-brand-dark hover:text-brand underline-offset-4 transition-colors dark:text-brand-light dark:hover:text-brand;
 }
+dt {
+  @apply text-slate-500 dark:text-slate-400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply dark:text-slate-100 text-slate-900;
+}
+
+p {
+  @apply dark:text-slate-100 text-slate-600;
+}
+
+.dark dt {
+  @apply text-slate-400 dark:text-slate-400;
+}
 
 section {
-  @apply py-8 lg:py-24;
+  @apply py-8 lg:py-16;
 }
 
 .container {
@@ -42,6 +65,22 @@ section {
   @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-slate-900/20;
 }
 
+.dark .card {
+  @apply border-slate-700/70 dark:border-slate-700/70;
+}
+.dark .badge {
+  @apply bg-brand/20 dark:bg-brand/20;
+}
+.dark .btn-primary {
+  @apply bg-brand-dark dark:bg-brand-dark;
+}
+.dark .btn-secondary {
+  @apply border-brand-light dark:border-brand-light;
+}
+.dark .btn-primary:hover {
+  @apply bg-brand-dark/80 dark:bg-brand-dark/80;
+}
+
 .gradient-sunrise {
   background: radial-gradient(circle at top left, #ffe0a3, transparent 55%),
     radial-gradient(
@@ -53,7 +92,11 @@ section {
 }
 
 .dark .gradient-sunrise {
-  background: radial-gradient(circle at top left, rgba(249, 162, 27, 0.3), transparent 55%),
+  background: radial-gradient(
+      circle at top left,
+      rgba(249, 162, 27, 0.3),
+      transparent 55%
+    ),
     radial-gradient(
       circle at bottom right,
       rgba(249, 162, 27, 0.4),
