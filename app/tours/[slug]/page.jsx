@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import PaymentWidget from '@/components/payments/PaymentWidget';
 import { tours } from '@/data/tours';
 
 export function generateStaticParams() {
@@ -22,6 +23,13 @@ export default function TourDetailPage({ params }) {
   if (!tour) {
     notFound();
   }
+
+  const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(`${tour.title} Georgia tour`)}&ssrc=e`;
+
+  const numericPriceMatch = tour.price.match(/[\d,.]+/);
+  const numericPrice = numericPriceMatch ? Number.parseFloat(numericPriceMatch[0].replace(/,/g, '')) : 0;
+  const suggestedDeposit = numericPrice ? Math.max(250, Math.round((numericPrice * 0.25) / 50) * 50) : 350;
+  const minimumDeposit = numericPrice ? Math.max(150, Math.round((numericPrice * 0.1) / 50) * 50) : 200;
 
   return (
     <section>
@@ -87,6 +95,13 @@ export default function TourDetailPage({ params }) {
                 Share your preferred dates, group size, and interests. Our concierge will respond within 24 hours with a bespoke
                 proposal.
               </p>
+              <PaymentWidget
+                heading="Reserve with a secure deposit"
+                description="Confirm your space instantly using cards, Apple Pay, Google Pay, or PayPal. We will send a concierge confirmation right away."
+                defaultAmount={suggestedDeposit}
+                minAmount={minimumDeposit}
+                tourTitle={tour.title}
+              />
               <form className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Name</label>
@@ -133,6 +148,14 @@ export default function TourDetailPage({ params }) {
                   Request details
                 </button>
               </form>
+              <Link
+                href={tripAdvisorSearchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full justify-center text-sm"
+              >
+                Book via TripAdvisor
+              </Link>
             </aside>
           </div>
         </div>

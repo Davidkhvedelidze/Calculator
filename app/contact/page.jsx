@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import PaymentWidget from '@/components/payments/PaymentWidget';
+
 const faqs = [
   {
     question: 'Do you design fully bespoke itineraries?',
@@ -81,6 +84,12 @@ export default function ContactPage() {
                 Submit enquiry
               </button>
             </form>
+            <PaymentWidget
+              heading="Pay your planning deposit online"
+              description="Settle your bespoke travel design deposit instantly to start confirming services, accommodations, and experiences."
+              defaultAmount={350}
+              minAmount={200}
+            />
           </div>
           <aside className="card space-y-6 bg-slate-50/70">
             <div>
@@ -109,6 +118,14 @@ export default function ContactPage() {
                 ))}
               </ul>
             </div>
+            <Link
+              href="https://www.tripadvisor.com/Profile/MustSeeGeorgia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary w-full justify-center text-sm"
+            >
+              Book via TripAdvisor
+            </Link>
           </aside>
         </div>
       </div>
