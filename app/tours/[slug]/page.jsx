@@ -24,6 +24,9 @@ export default function TourDetailPage({ params }) {
     notFound();
   }
 
+  const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(`${tour.title} Georgia tour`)}&ssrc=e`;
+  const paymentMethods = ['PayPal', 'Apple Pay', 'Google Pay'];
+
   return (
     <section>
       <div className="container space-y-12">
@@ -123,6 +126,83 @@ export default function TourDetailPage({ params }) {
                 </div>
               </div>
             </div>
+            <aside className="card sticky top-28 space-y-6">
+              <h2 className="text-2xl font-semibold text-slate-900">Reserve this journey</h2>
+              <p className="text-sm text-slate-600">
+                Share your preferred dates, group size, and interests. Our concierge will respond within 24 hours with a bespoke
+                proposal.
+              </p>
+              <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Secure online payments</h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Reserve with peace of mind using modern payment wallets trusted worldwide.
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {paymentMethods.map((method) => (
+                    <li
+                      key={method}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500"
+                    >
+                      {method}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <form className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Name</label>
+                  <input
+                    type="text"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
+                    placeholder="Your full name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Email</label>
+                  <input
+                    type="email"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Travel month</label>
+                  <input
+                    type="text"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
+                    placeholder="e.g. June 2024"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Guests</label>
+                  <input
+                    type="number"
+                    min="1"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
+                    placeholder="2"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Interests</label>
+                  <textarea
+                    rows="3"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
+                    placeholder="Wine, architecture, wellness, adventure..."
+                  />
+                </div>
+                <button type="submit" className="btn-primary w-full">
+                  Request details
+                </button>
+              </form>
+              <Link
+                href={tripAdvisorSearchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full justify-center text-sm"
+              >
+                Book via TripAdvisor
+              </Link>
+            </aside>
             <TourDetailClient tour={tour} />
           </div>
         </div>
