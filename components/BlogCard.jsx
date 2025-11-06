@@ -14,13 +14,15 @@ export function BlogCard({ post }) {
         />
       </div>
       <span className="badge w-fit">{post.category}</span>
-      <h3 className="text-xl font-semibold text-slate-900">{post.title}</h3>
-      <p className="text-sm text-slate-600">{post.excerpt}</p>
-      <div className="mt-auto flex items-center justify-between text-sm text-slate-500">
+      <h3 className="text-xl font-semibold   dark:text-slate-100">
+        {post.title}
+      </h3>
+      <p className="text-sm   dark:text-slate-300">{post.excerpt}</p>
+      <div className="mt-auto flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
         <span>{post.date}</span>
         <Link
           href={`/blog/${post.slug}`}
-          className="font-semibold text-brand-dark"
+          className="font-semibold text-brand-dark hover:text-brand dark:text-brand-light dark:hover:text-brand transition-colors"
         >
           Read more →
         </Link>

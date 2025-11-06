@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useSnapshot } from 'valtio';
-import { BrandMark } from './BrandMark';
-import { DarkModeToggle } from './DarkModeToggle';
-import { closeMobileNav, toggleMobileNav, uiState } from '@/store';
+import Link from "next/link";
+import { useSnapshot } from "valtio";
+import { BrandMark } from "./BrandMark";
+import { DarkModeToggle } from "./DarkModeToggle";
+import { closeMobileNav, toggleMobileNav, uiState } from "@/store";
 
 const links = [
-  { href: '/about', label: 'About' },
-  { href: '/tours', label: 'Tours' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' }
+  { href: "/about", label: "About" },
+  { href: "/about-georgia", label: "About Georgia" },
+  { href: "/tours", label: "Tours" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -22,7 +23,11 @@ export function Header() {
         <BrandMark className="shrink-0" priority />
         <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-700 dark:text-slate-300 lg:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="transition hover:text-brand-dark dark:hover:text-brand-light">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition hover:text-brand-dark dark:hover:text-brand-light"
+            >
               {link.label}
             </Link>
           ))}
@@ -40,8 +45,22 @@ export function Header() {
             aria-label="Toggle navigation"
             aria-expanded={snap.mobileNavOpen}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-              <path d={snap.mobileNavOpen ? 'M6 18L18 6M6 6l12 12' : 'M3 6h18M3 12h18M3 18h18'} />
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            >
+              <path
+                d={
+                  snap.mobileNavOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M3 6h18M3 12h18M3 18h18"
+                }
+              />
             </svg>
           </button>
         </div>

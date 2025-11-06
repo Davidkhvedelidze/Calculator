@@ -14,10 +14,10 @@ export default function BlogPage() {
       <div className="container space-y-12">
         <div className="space-y-4">
           <span className="badge">Travel journal</span>
-          <h1 className="text-4xl font-display font-semibold text-slate-900">
+          <h1 className="text-4xl font-display font-semibold  ">
             Dispatches from our curator team
           </h1>
-          <p className="max-w-2xl text-base text-slate-600">
+          <p className="max-w-2xl text-base  ">
             Explore seasonal itineraries, culinary trends, and design-forward
             stays curated by Must See Georgia. Each story is a glimpse into how
             we shape bespoke journeys.
@@ -40,10 +40,10 @@ export default function BlogPage() {
                 />
               </div>
               <span className="badge w-fit">{post.category}</span>
-              <h2 className="text-2xl font-semibold text-slate-900 group-hover:text-brand-dark transition-colors">
+              <h2 className="text-2xl font-semibold   group-hover:text-brand-dark transition-colors">
                 {post.title}
               </h2>
-              <p className="text-sm text-slate-600">{post.content}</p>
+              <p className="text-sm  ">{post.content}</p>
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                   {post.date}

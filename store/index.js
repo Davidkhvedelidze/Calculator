@@ -3,8 +3,8 @@ import { proxy } from 'valtio';
 export const uiState = proxy({
   mobileNavOpen: false,
   filter: {
-    region: 'All',
-    theme: 'All'
+    regions: [],
+    themes: []
   },
   favorites: []
 });
