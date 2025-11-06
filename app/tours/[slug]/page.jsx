@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { tours } from "@/data/tours";
-import { TourDetailClient } from "./TourDetailClient";
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import PaymentWidget from '@/components/payments/PaymentWidget';
+import { tours } from '@/data/tours';
 
 export function generateStaticParams() {
   return tours.map((tour) => ({ slug: tour.slug }));
@@ -25,7 +25,11 @@ export default function TourDetailPage({ params }) {
   }
 
   const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(`${tour.title} Georgia tour`)}&ssrc=e`;
-  const paymentMethods = ['PayPal', 'Apple Pay', 'Google Pay'];
+
+  const numericPriceMatch = tour.price.match(/[\d,.]+/);
+  const numericPrice = numericPriceMatch ? Number.parseFloat(numericPriceMatch[0].replace(/,/g, '')) : 0;
+  const suggestedDeposit = numericPrice ? Math.max(250, Math.round((numericPrice * 0.25) / 50) * 50) : 350;
+  const minimumDeposit = numericPrice ? Math.max(150, Math.round((numericPrice * 0.1) / 50) * 50) : 200;
 
   return (
     <section>
@@ -132,22 +136,13 @@ export default function TourDetailPage({ params }) {
                 Share your preferred dates, group size, and interests. Our concierge will respond within 24 hours with a bespoke
                 proposal.
               </p>
-              <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Secure online payments</h3>
-                <p className="mt-2 text-sm text-slate-600">
-                  Reserve with peace of mind using modern payment wallets trusted worldwide.
-                </p>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {paymentMethods.map((method) => (
-                    <li
-                      key={method}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500"
-                    >
-                      {method}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <PaymentWidget
+                heading="Reserve with a secure deposit"
+                description="Confirm your space instantly using cards, Apple Pay, Google Pay, or PayPal. We will send a concierge confirmation right away."
+                defaultAmount={suggestedDeposit}
+                minAmount={minimumDeposit}
+                tourTitle={tour.title}
+              />
               <form className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Name</label>

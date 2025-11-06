@@ -28,3 +28,20 @@ This project now includes an OpenAI-powered chat concierge that helps visitors d
 
 The widget uses the `app/api/chat` endpoint to fetch itinerary suggestions powered by OpenAI. The UI labels the experience as “Powered by OpenAI · gpt-5-codex” to match the concierge branding.
 
+## Configuring secure online payments
+
+To accept live deposits with PayPal, Apple Pay, Google Pay, and major cards, configure both Stripe and PayPal credentials in `.env.local`:
+
+```bash
+# Stripe (required for card, Apple Pay, Google Pay)
+STRIPE_SECRET_KEY=sk_test_yourSecretKey
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_yourPublishableKey
+
+# PayPal (required for PayPal checkout button)
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_client_id
+```
+
+> **Tip:** Use Stripe test keys and a PayPal sandbox client ID while developing. Production keys can be added later without changing the code.
+
+After setting the environment variables, restart `npm run dev`. Travelers can then complete deposits directly from the Contact page or any tour detail page. Stripe automatically enables Apple Pay and Google Pay when the domain is verified and the browser supports those wallets. PayPal payments are captured immediately and display the transaction ID inside the interface.
+

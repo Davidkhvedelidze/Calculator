@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PaymentWidget from '@/components/payments/PaymentWidget';
 
 const faqs = [
   {
@@ -87,22 +88,12 @@ export default function ContactPage() {
                 Submit enquiry
               </button>
             </form>
-            <div className="card space-y-3 bg-slate-50/70">
-              <h2 className="text-lg font-semibold text-slate-900">Flexible online payments</h2>
-              <p className="text-sm text-slate-600">
-                We support trusted digital wallets so you can confirm your journey quickly and securely from anywhere in the world.
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {['PayPal', 'Apple Pay', 'Google Pay'].map((method) => (
-                  <li
-                    key={method}
-                    className="rounded-full border border-slate-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500"
-                  >
-                    {method}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <PaymentWidget
+              heading="Pay your planning deposit online"
+              description="Settle your bespoke travel design deposit instantly to start confirming services, accommodations, and experiences."
+              defaultAmount={350}
+              minAmount={200}
+            />
           </div>
           <aside className="card space-y-6 bg-slate-50/70">
             <div>
