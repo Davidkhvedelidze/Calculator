@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import PaymentWidget from '@/components/payments/PaymentWidget';
-import { tours } from '@/data/tours';
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import PaymentWidget from "@/components/payments/PaymentWidget";
+import { tours } from "@/data/tours";
 
 export function generateStaticParams() {
   return tours.map((tour) => ({ slug: tour.slug }));
@@ -24,12 +24,20 @@ export default function TourDetailPage({ params }) {
     notFound();
   }
 
-  const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(`${tour.title} Georgia tour`)}&ssrc=e`;
+  const tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(
+    `${tour.title} Georgia tour`
+  )}&ssrc=e`;
 
   const numericPriceMatch = tour.price.match(/[\d,.]+/);
-  const numericPrice = numericPriceMatch ? Number.parseFloat(numericPriceMatch[0].replace(/,/g, '')) : 0;
-  const suggestedDeposit = numericPrice ? Math.max(250, Math.round((numericPrice * 0.25) / 50) * 50) : 350;
-  const minimumDeposit = numericPrice ? Math.max(150, Math.round((numericPrice * 0.1) / 50) * 50) : 200;
+  const numericPrice = numericPriceMatch
+    ? Number.parseFloat(numericPriceMatch[0].replace(/,/g, ""))
+    : 0;
+  const suggestedDeposit = numericPrice
+    ? Math.max(250, Math.round((numericPrice * 0.25) / 50) * 50)
+    : 350;
+  const minimumDeposit = numericPrice
+    ? Math.max(150, Math.round((numericPrice * 0.1) / 50) * 50)
+    : 200;
 
   return (
     <section>
@@ -131,10 +139,12 @@ export default function TourDetailPage({ params }) {
               </div>
             </div>
             <aside className="card sticky top-28 space-y-6">
-              <h2 className="text-2xl font-semibold text-slate-900">Reserve this journey</h2>
+              <h2 className="text-2xl font-semibold text-slate-900">
+                Reserve this journey
+              </h2>
               <p className="text-sm text-slate-600">
-                Share your preferred dates, group size, and interests. Our concierge will respond within 24 hours with a bespoke
-                proposal.
+                Share your preferred dates, group size, and interests. Our
+                concierge will respond within 24 hours with a bespoke proposal.
               </p>
               <PaymentWidget
                 heading="Reserve with a secure deposit"
@@ -145,7 +155,9 @@ export default function TourDetailPage({ params }) {
               />
               <form className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Name</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Name
+                  </label>
                   <input
                     type="text"
                     className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
@@ -153,7 +165,9 @@ export default function TourDetailPage({ params }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Email</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
@@ -161,7 +175,9 @@ export default function TourDetailPage({ params }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Travel month</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Travel month
+                  </label>
                   <input
                     type="text"
                     className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
@@ -169,7 +185,9 @@ export default function TourDetailPage({ params }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Guests</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Guests
+                  </label>
                   <input
                     type="number"
                     min="1"
@@ -178,7 +196,9 @@ export default function TourDetailPage({ params }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Interests</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Interests
+                  </label>
                   <textarea
                     rows="3"
                     className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 focus:border-brand focus:outline-none"
@@ -198,7 +218,7 @@ export default function TourDetailPage({ params }) {
                 Book via TripAdvisor
               </Link>
             </aside>
-            <TourDetailClient tour={tour} />
+            {/* <TourDetailClient tour={tour} /> */}
           </div>
         </div>
       </div>
