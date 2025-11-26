@@ -8,37 +8,57 @@
 
 :root {
   color-scheme: light;
+  --bg-base: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-muted: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-subtle: #e2e8f0;
+  --shadow-soft: 0 10px 40px rgba(15, 23, 42, 0.08);
 }
 
 :root.dark {
   color-scheme: dark;
+  --bg-base: #0b1220;
+  --bg-surface: #0f162a;
+  --bg-muted: #1b2437;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --border-subtle: #1f2937;
+  --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.25);
 }
 
 body {
-  @apply bg-white   font-body dark:bg-slate-900 dark:text-slate-100;
+  @apply font-body antialiased transition-colors duration-300;
+  background: var(--bg-base);
+  color: var(--text-primary);
 }
 
 a {
-  @apply text-brand-dark hover:text-brand underline-offset-4 transition-colors dark:text-brand-light dark:hover:text-brand;
+  @apply underline-offset-4 transition-colors;
+  color: theme("colors.brand.600");
 }
+
+a:hover {
+  color: theme("colors.brand.700");
+}
+
 dt {
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-sm font-semibold;
+  color: var(--text-secondary);
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply dark:text-slate-100 text-slate-900;
+  color: var(--text-primary);
 }
 
 p {
-  @apply dark:text-slate-100 text-slate-600;
-}
-
-.dark dt {
-  @apply text-slate-400 dark:text-slate-400;
+  color: var(--text-secondary);
 }
 
 section {
@@ -46,61 +66,49 @@ section {
 }
 
 .container {
-  @apply max-w-6xl mx-auto px-6 lg:px-8;
+  @apply mx-auto max-w-6xl px-6 lg:px-8;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark dark:shadow-brand/60;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg transition;
+  background: linear-gradient(135deg, theme("colors.brand.500"), theme("colors.brand.700"));
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  @apply opacity-90;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-6 py-3 font-semibold text-brand hover:bg-brand/10 dark:border-brand-light dark:text-brand-light dark:hover:bg-brand/20;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 font-semibold transition;
+  border-color: theme("colors.border.subtle");
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: theme("colors.brand.50");
 }
 
 .badge {
-  @apply rounded-full bg-brand-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark dark:bg-brand/20 dark:text-brand-light;
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+  background: theme("colors.accent.amberLight");
+  color: theme("colors.accent.amberDark");
 }
 
 .card {
-  @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-slate-900/20;
-}
-
-.dark .card {
-  @apply border-slate-700/70 dark:border-slate-700/70;
-}
-.dark .badge {
-  @apply bg-brand/20 dark:bg-brand/20;
-}
-.dark .btn-primary {
-  @apply bg-brand-dark dark:bg-brand-dark;
-}
-.dark .btn-secondary {
-  @apply border-brand-light dark:border-brand-light;
-}
-.dark .btn-primary:hover {
-  @apply bg-brand-dark/80 dark:bg-brand-dark/80;
+  @apply rounded-2xl border bg-white/80 p-6 shadow-soft backdrop-blur-sm dark:bg-surface-muted/80;
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 .gradient-sunrise {
   background: radial-gradient(circle at top left, #ffe0a3, transparent 55%),
-    radial-gradient(
-      circle at bottom right,
-      rgba(249, 162, 27, 0.25),
-      transparent 60%
-    ),
+    radial-gradient(circle at bottom right, rgba(249, 162, 27, 0.25), transparent 60%),
     linear-gradient(135deg, rgba(249, 162, 27, 0.16), transparent 65%);
 }
 
 .dark .gradient-sunrise {
-  background: radial-gradient(
-      circle at top left,
-      rgba(249, 162, 27, 0.3),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(249, 162, 27, 0.4),
-      transparent 60%
-    ),
+  background: radial-gradient(circle at top left, rgba(249, 162, 27, 0.3), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(249, 162, 27, 0.4), transparent 60%),
     linear-gradient(135deg, rgba(249, 162, 27, 0.2), transparent 65%);
 }
